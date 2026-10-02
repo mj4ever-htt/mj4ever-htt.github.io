@@ -4,31 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MJ Trader Pro</title>
+
 <style>
-body{font-family:Arial,sans-serif;max-width:800px;margin:auto;padding:20px}
-.card{border:1px solid #ccc;border-radius:8px;padding:15px;margin:10px 0}
-button,input{padding:8px;width:100%;margin:5px 0}
+body{
+background:#0f172a;
+color:white;
+font-family:Arial,sans-serif;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+h1{
+margin-top:0;
+}
+
+input,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+}
+
+button{
+background:#22c55e;
+color:white;
+font-weight:bold;
+}
+
+.stat{
+font-size:28px;
+font-weight:bold;
+}
+
+.small{
+color:#94a3b8;
+}
 </style>
 </head>
+
 <body>
+
+<div class="container">
+
+<div class="card">
 <h1>MJ Trader Pro</h1>
-<p>Trading journal and risk management tool for forex traders.</p>
+<p class="small">Trading Journal & Risk Management Dashboard</p>
+</div>
+
+<div class="card">
+<h2>Account Overview</h2>
+
+<div class="stat">$1000</div>
+<p class="small">Demo Account Balance</p>
+
+<div class="stat">1%</div>
+<p class="small">Risk Per Trade</p>
+</div>
 
 <div class="card">
 <h2>Risk Calculator</h2>
-<input id="bal" type="number" value="1000" placeholder="Balance">
-<input id="risk" type="number" value="1" placeholder="Risk %">
-<button onclick="calc()">Calculate</button>
-<p id="out"></p>
+
+<input id="balance" type="number" placeholder="Account Balance" value="1000">
+
+<input id="risk" type="number" placeholder="Risk %" value="1">
+
+<button onclick="calc()">Calculate Risk</button>
+
+<p id="result"></p>
+</div>
+
+<div class="card">
+<h2>Coming Soon</h2>
+
+<ul>
+<li>Trade Journal</li>
+<li>Win Rate Tracking</li>
+<li>Equity Curve</li>
+<li>Trade Statistics</li>
+<li>Installable Mobile App</li>
+</ul>
+</div>
+
 </div>
 
 <script>
 function calc(){
- let b=+document.getElementById('bal').value;
- let r=+document.getElementById('risk').value;
- let riskAmount=b*r/100;
- document.getElementById('out').innerHTML="Risk Amount: $"+riskAmount.toFixed(2);
+let balance =
+parseFloat(document.getElementById("balance").value);
+
+let risk =
+parseFloat(document.getElementById("risk").value);
+
+let riskAmount =
+(balance*risk)/100;
+
+document.getElementById("result").innerHTML =
+"Risk Amount: $" + riskAmount.toFixed(2);
 }
 </script>
+
 </body>
 </html>
